@@ -1,0 +1,86 @@
+{
+  "name": "nest-api",
+  "version": "0.0.1",
+  "description": "",
+  "author": "",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "nest build",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "start": "nest start",
+    "start:dev": "nest start --watch",
+    "start:debug": "nest start --debug --watch",
+    "start:prod": "node dist/main",
+    "test": "jest",
+    "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
+    "migration:generate": "npm run typeorm -- migration:generate src/migrations/Migration -d src/data-source.ts",
+    "migration:run": "npm run typeorm -- migration:run -d src/data-source.ts",
+    "migration:revert": "npm run typeorm -- migration:revert -d src/data-source.ts"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^11.0.17",
+    "@types/argparse": "^2.0.17",
+    "@types/debug": "^4.1.12",
+    "@types/express": "^5.0.6",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^25.2.0",
+    "@types/node-fetch": "^2.6.13",
+    "@types/pg": "^8.16.0",
+    "@types/supertest": "^7.2.0",
+    "ts-jest": "^29.4.6",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@grammyjs/auto-retry": "^2.0.2",
+    "@grammyjs/hydrate": "^1.6.0",
+    "@keyv/redis": "^5.1.6",
+    "@nestjs/cache-manager": "^3.1.0",
+    "@nestjs/common": "^11.0.0",
+    "@nestjs/config": "^4.0.3",
+    "@nestjs/core": "^11.0.0",
+    "@nestjs/jwt": "^11.0.2",
+    "@nestjs/mapped-types": "^2.1.0",
+    "@nestjs/passport": "^11.0.5",
+    "@nestjs/platform-express": "^11.0.0",
+    "@nestjs/schedule": "^6.1.1",
+    "@nestjs/testing": "^11.1.17",
+    "@nestjs/typeorm": "^11.0.0",
+    "argparse": "^2.0.1",
+    "axios": "^1.13.6",
+    "bcrypt": "^6.0.0",
+    "cache-manager": "^7.2.8",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.4",
+    "express": "^5.2.1",
+    "jest": "^30.3.0",
+    "nanoid": "^5.1.7",
+    "passport-jwt": "^4.0.1",
+    "pg": "^8.18.0",
+    "postgres-migrations": "^5.3.0",
+    "supertest": "^7.2.2",
+    "typeorm": "^0.3.28",
+    "typeorm-naming-strategy": "^2.0.16"
+  },
+  "overrides": {
+    "path-to-regexp": "^8.3.1"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  }
+}

@@ -1,0 +1,60 @@
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoiaWFtYWdpcnltYXJ1QGdtYWlsLmNvbSIsImlhdCI6MTc3NDk1NjU5OSwiZXhwIjoxNzc0OTYwMTk5fQ.BB351r4R_kfINJ4-Ng8h__jTjvbOVlMLfxPW3UkyaFA
+
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+    "email": "iamagirymaru@gmail.com",
+    "password": "444555666",
+    "name": "ian"
+}
+
+###
+
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "email": "iamagirymaru@gmail.com",
+    "password": "444555666"
+}
+
+###
+
+POST http://localhost:3000/articles
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "title": "test",
+    "description": "testtesttest"
+}
+
+###
+
+GET http://localhost:3000/articles?page=4&limit=2
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+
+DELETE http://localhost:3000/articles/1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+
+GET http://localhost:3000/articles/1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+
+PUT http://localhost:3000/articles/1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "title": "testNew",
+    "description": "testtesttesttestNew"
+}
